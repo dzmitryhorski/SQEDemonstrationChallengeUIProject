@@ -1,6 +1,5 @@
 package com.sample.test.demo.tests;
 
-import com.sample.enums.PizzaTopping;
 import com.sample.enums.PizzaType;
 import com.sample.basetest.BaseTest;
 import org.apache.commons.lang3.StringUtils;
@@ -12,6 +11,8 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.function.Consumer;
 
+import static com.sample.enums.PizzaTopping.*;
+import static com.sample.enums.PizzaType.*;
 import static com.sample.utils.OrderUtils.TEST_EMAIL;
 import static com.sample.utils.OrderUtils.TEST_NAME;
 import static com.sample.utils.OrderUtils.TEST_PHONE;
@@ -34,13 +35,13 @@ public class IntegrationTest extends BaseTest {
         return new Object[][] {
                 {BigInteger.ONE.negate(), BigDecimal.ZERO},
                 {BigInteger.ZERO, BigDecimal.ZERO},
-                {BigInteger.ONE, PizzaType.SMALL_NOTOPPINGS.getCost()}};
+                {BigInteger.ONE, SMALL_NOTOPPINGS.getCost()}};
     }
 
     @Test(dataProvider = "quantities",
             description = "Verify cost is displayed correctly based on pizza selection and quantity")
     public void costOfQuantityTest(BigInteger qty, BigDecimal expectedCost) {
-        orderPageService.choosePizzaType(PizzaType.SMALL_NOTOPPINGS);
+        orderPageService.choosePizzaType(SMALL_NOTOPPINGS);
         orderPageService.setQuantity(qty);
         orderPageService.clickCostInput();
         orderPageVerification.verifyCost(expectedCost);
@@ -74,7 +75,7 @@ public class IntegrationTest extends BaseTest {
         orderPageVerification.verifySingleRadioButtonIsSelected(false);
     }
 
-    @Test(description = "Verify error message appears if mandatory fields are not filled out")
+    @Test(description = "Verify error message if mandatory fields are not filled out")
     public void errorMessageNoFieldsFilledTest() {
         orderPageService.clickPlaceOrderButton();
         boolean isDialogPresent = infoDialogService.isDialogDisplayed();
@@ -82,7 +83,7 @@ public class IntegrationTest extends BaseTest {
     }
 
     @DataProvider
-    public Object[] mandatoryFields() {
+    public Object[][] mandatoryFields() {
         Consumer<String> setName = name -> orderPageService.setName(name);
         Consumer<String> setPhone = phone -> orderPageService.setPhone(phone);
         return new Object[][]{
@@ -91,7 +92,7 @@ public class IntegrationTest extends BaseTest {
     }
 
     @Test(dataProvider = "mandatoryFields",
-            description = "Verify error message appears if one mandatory field is not filled out")
+            description = "Verify error message if only one mandatory field is filled out")
     public void errorMessageOneFieldFilledTest(Consumer<String> setField, String data, String expectedMessage) {
         orderPageService.clickResetButton();
         setField.accept(data);
@@ -108,9 +109,9 @@ public class IntegrationTest extends BaseTest {
     }
 
     private void fillAllFields() {
-        orderPageService.choosePizzaType(PizzaType.MEDIUM_TWOTOPPINGS);
-        orderPageService.chooseFirstTopping(PizzaTopping.DICED_MANGO);
-        orderPageService.chooseSecondTopping(PizzaTopping.CARAMELIZED_ONIONS);
+        orderPageService.choosePizzaType(MEDIUM_TWOTOPPINGS);
+        orderPageService.chooseFirstTopping(DICED_MANGO);
+        orderPageService.chooseSecondTopping(CARAMELIZED_ONIONS);
         orderPageService.setQuantity(BigInteger.ONE);
         orderPageService.setName(TEST_NAME);
         orderPageService.setEmail(TEST_EMAIL);

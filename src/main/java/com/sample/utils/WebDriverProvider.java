@@ -10,7 +10,7 @@ import static org.testng.Assert.fail;
 
 public class WebDriverProvider {
 
-    private static WebDriver driver;
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static WebDriver getDriver() {
         Configuration config = new Configuration();
@@ -24,12 +24,11 @@ public class WebDriverProvider {
         } else {
             fail("Unsupported browser " + config.getBrowser());
         }
-        if (driver == null) {
-            driver = new ChromeDriver();
+        if (driver.get() == null) {
+            driver.set(new ChromeDriver());
         }
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        return driver;
+        driver.get().manage().window().maximize();
+        driver.get().manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        return driver.get();
     }
-
 }

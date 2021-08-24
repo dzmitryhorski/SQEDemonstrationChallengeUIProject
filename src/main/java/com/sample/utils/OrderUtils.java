@@ -25,12 +25,11 @@ public class OrderUtils {
 
     private static final Logger LOGGER = LogManager.getLogger();
 
-    private static final String LOG_MESSAGE = "Order created: ";
-
+    private static final String ORDER_CREATED_MESSAGE = "Order created: ";
 
     public static Order initOrder(PizzaType pizzaType, BigInteger quantity, PaymentMethod paymentMethod) {
         Order order = initBasicOrder(pizzaType, quantity, paymentMethod).build();
-        LOGGER.debug(LOG_MESSAGE + order.toString());
+        LOGGER.debug(ORDER_CREATED_MESSAGE + order.toString());
         return order;
     }
 
@@ -38,7 +37,7 @@ public class OrderUtils {
                                   PaymentMethod paymentMethod) {
         Order order =
                 initBasicOrder(pizzaType, quantity, paymentMethod).with(Order::setFirstTopping, firstTopping).build();
-        LOGGER.debug(LOG_MESSAGE + order.toString());
+        LOGGER.debug(ORDER_CREATED_MESSAGE + order.toString());
         return order;
     }
 
@@ -48,7 +47,7 @@ public class OrderUtils {
                 .with(Order::setFirstTopping, firstTopping)
                 .with(Order::setSecondTopping, secondTopping)
                 .build();
-        LOGGER.debug(LOG_MESSAGE + order.toString());
+        LOGGER.debug(ORDER_CREATED_MESSAGE + order.toString());
         return order;
     }
 
