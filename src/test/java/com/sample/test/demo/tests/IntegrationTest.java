@@ -1,7 +1,7 @@
 package com.sample.test.demo.tests;
 
-import com.sample.enums.PizzaType;
 import com.sample.basetest.BaseTest;
+import com.sample.enums.PizzaType;
 import org.apache.commons.lang3.StringUtils;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -11,8 +11,10 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.function.Consumer;
 
-import static com.sample.enums.PizzaTopping.*;
-import static com.sample.enums.PizzaType.*;
+import static com.sample.enums.PizzaTopping.CARAMELIZED_ONIONS;
+import static com.sample.enums.PizzaTopping.DICED_MANGO;
+import static com.sample.enums.PizzaType.MEDIUM_TWOTOPPINGS;
+import static com.sample.enums.PizzaType.SMALL_NOTOPPINGS;
 import static com.sample.utils.OrderUtils.TEST_EMAIL;
 import static com.sample.utils.OrderUtils.TEST_NAME;
 import static com.sample.utils.OrderUtils.TEST_PHONE;

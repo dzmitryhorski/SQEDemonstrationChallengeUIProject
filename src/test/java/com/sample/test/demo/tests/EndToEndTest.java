@@ -1,11 +1,11 @@
 package com.sample.test.demo.tests;
 
 import com.google.common.collect.Lists;
+import com.sample.basetest.BaseTest;
 import com.sample.enums.PaymentMethod;
 import com.sample.enums.PizzaTopping;
 import com.sample.enums.PizzaType;
 import com.sample.models.Order;
-import com.sample.basetest.BaseTest;
 import com.sample.utils.OrderUtils;
 import org.apache.commons.lang3.function.TriFunction;
 import org.testng.annotations.DataProvider;
@@ -18,7 +18,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static com.sample.enums.PizzaType.*;
+import static com.sample.enums.PizzaType.LARGE_NOTOPPINGS;
+import static com.sample.enums.PizzaType.LARGE_TWOTOPPINGS;
+import static com.sample.enums.PizzaType.MEDIUM_TWOTOPPINGS;
+import static com.sample.enums.PizzaType.SMALL_NOTOPPINGS;
+import static com.sample.enums.PizzaType.SMALL_ONETOPPING;
 
 public class EndToEndTest extends BaseTest {
 
