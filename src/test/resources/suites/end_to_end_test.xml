@@ -1,0 +1,31 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="End To End test suite" parallel="tests" thread-count="3">
+	<test name="Place order with no toppings">
+		<classes>
+			<class name="com.sample.test.demo.tests.EndToEndTest">
+				<methods>
+					<include name="successfulNoToppingsOrderInfoTest"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Place order with one topping">
+		<classes>
+			<class name="com.sample.test.demo.tests.EndToEndTest">
+				<methods>
+					<include name="successfulOneToppingOrderInfoTest"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Place order with two toppings">
+		<classes>
+			<class name="com.sample.test.demo.tests.EndToEndTest">
+				<methods>
+					<include name="successfulTwoToppingsOrderInfoTest"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
+

@@ -1,0 +1,66 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Integration test suite" parallel="tests" thread-count="7">
+  <test name="Verify cost based on quantity">
+    <classes>
+      <class name="com.sample.test.demo.tests.IntegrationTest">
+        <methods>
+          <include name="costOfQuantityTest"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+  <test name="Verify cost based on pizza type">
+    <classes>
+      <class name="com.sample.test.demo.tests.IntegrationTest">
+        <methods>
+          <include name="costOfPizzaTypeTest"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+  <test name="Verify maximum digits in quantity input">
+    <classes>
+      <class name="com.sample.test.demo.tests.IntegrationTest">
+        <methods>
+          <include name="maxDigitsInQuantityInputTest"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+  <test name="Verify only one radio button can be selected">
+    <classes>
+      <class name="com.sample.test.demo.tests.IntegrationTest">
+        <methods>
+          <include name="radioButtonsTest"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+  <test name="Verify error message when mandatory fields are not filled out">
+    <classes>
+      <class name="com.sample.test.demo.tests.IntegrationTest">
+        <methods>
+          <include name="errorMessageNoFieldsFilledTest"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+  <test name="Verify error message when only one mandatory field is filled out">
+    <classes>
+      <class name="com.sample.test.demo.tests.IntegrationTest">
+        <methods>
+          <include name="errorMessageOneFieldFilledTest"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+  <test name="Verify reset application">
+    <classes>
+      <class name="com.sample.test.demo.tests.IntegrationTest">
+        <methods>
+          <include name="resetButtonTest"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>

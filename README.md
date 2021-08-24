@@ -47,5 +47,13 @@ We will be evaluating
 
 #### Test Cases
 
- 1.  
+ 1.  Verify cost is displayed correctly based on pizza selection and quantity
+ 2.  Verify only one radio button can be selected at a time
+ 3.  Verify error message if mandatory fields are not filled out
+ 4.  Verify error message if only one mandatory field is filled out
+ 5.  Verify all fields have default or no values after reset
+ 6.  Verify correct info is displayed in info dialog after order for a pizza with no toppings is placed
+ 7.  Verify correct info is displayed in info dialog after order for a pizza with one topping is placed
+ 8.  Verify correct info is displayed in info dialog after order for a pizza with two toppings is placed
+
 
